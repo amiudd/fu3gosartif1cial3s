@@ -41,36 +41,10 @@
       0% { transform: translateY(0) scale(1); opacity: 1; }
       100% { transform: translateY(-120px) scale(1.4); opacity: 0; }
     }
-
-    #fullscreen-btn {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      z-index: 10;
-      width: 42px;
-      height: 42px;
-      background: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 22px;
-      border: 2px solid white;
-      border-radius: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s ease;
-    }
-
-    #fullscreen-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ff80c0;
-      border-color: #ff80c0;
-    }
   </style>
 </head>
 <body>
   <canvas id="fireworks"></canvas>
-  <button id="fullscreen-btn">⛶</button>
 
   <!-- Música de fondo -->
   <audio id="musica" preload="auto" loop>
@@ -242,19 +216,6 @@
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
-
-    document.getElementById("fullscreen-btn").addEventListener("click", () => {
-      const docElm = document.documentElement;
-      if (docElm.requestFullscreen) {
-        docElm.requestFullscreen();
-      } else if (docElm.mozRequestFullScreen) {
-        docElm.mozRequestFullScreen();
-      } else if (docElm.webkitRequestFullscreen) {
-        docElm.webkitRequestFullscreen();
-      } else if (docElm.msRequestFullscreen) {
-        docElm.msRequestFullscreen();
-      }
     });
 
     animate();
